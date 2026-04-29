@@ -139,7 +139,7 @@ class LoginWindow(tk.Tk):
         ]
         for i, (label, var, show) in enumerate(fields):
             self._labeled_entry(parent, label, var, i, show=show)
-        ttk.Button(parent, text="Создать аккаунт покупателя", style="Accent.TButton", command=self._register).grid(row=10, column=0, sticky="ew", padx=10, pady=20)
+        ttk.Button(parent, text="Создать аккаунт покупателя", style="Accent.TButton", command=self._register_buyer).grid(row=10, column=0, sticky="ew", padx=10, pady=20)
         parent.columnconfigure(0, weight=1)
 
     def _labeled_entry(self, parent, label, variable, row, show=""):
@@ -156,7 +156,7 @@ class LoginWindow(tk.Tk):
         app = MainWindow(user)
         app.mainloop()
 
-    def _register(self):
+    def _register_buyer(self):
         try:
             self.auth.register_buyer(
                 self.reg_username.get(), self.reg_password.get(), self.reg_name.get(), self.reg_phone.get(), self.reg_email.get()
